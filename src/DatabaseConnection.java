@@ -13,7 +13,7 @@ public class DatabaseConnection {
 	public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
 
 	public int getKeys(String table) {
-		int lastKey = 1;
+		int lastKey = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
@@ -82,5 +82,34 @@ public class DatabaseConnection {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public Advertiser findUserbyUsername(String username) {
+
+		Advertiser ad = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		try {
+			Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+			Statement statement = connection.createStatement();
+			ResultSet results = statement.executeQuery("select * from 12825612User where username = " + username);
+			while (results.next()) {
+				ad = new Advertiser();
+				ad.setID(results.getInt("id"));
+				ad.setUsername(results.getString("username"));
+				ad.setPassword(results.getString("password"));
+				ad.setEmail(results.getString("email"));
+				//TODO compelate the cover
+			}
+			statement.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ad;
 	}
 }
