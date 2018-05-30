@@ -14,7 +14,7 @@ public class Address {
 	
 	private String postcode;
 	
-	private void setID(int value) {
+	public void setID(int value) {
 		this.ID = value;
 	}
 	
