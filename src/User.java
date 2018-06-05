@@ -47,11 +47,6 @@ public class User {
 		return gender;
 	}
 	
-	public void login() {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
-	
 	public String toString() {
 		return String.valueOf(getID());
 	}

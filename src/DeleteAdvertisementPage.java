@@ -36,6 +36,11 @@ public class DeleteAdvertisementPage extends JFrame {
 	 * @return 
 	 */
 	public DeleteAdvertisementPage() {
+		
+		Advertisement ad = new Advertisement();
+		Advertisement adv = new Advertisement();
+		adv = ad.search();
+		
 		setTitle("DeleteAdvertisement");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 350, 450);
@@ -52,7 +57,7 @@ public class DeleteAdvertisementPage extends JFrame {
 		lblNewLabel.setBounds(10, 26, 200, 16);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblAdID = new JLabel("1");
+		JLabel lblAdID = new JLabel(adv.toString());
 		lblAdID.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblAdID.setBounds(83,24, 116, 22);
 		contentPane.add(lblAdID);
@@ -63,7 +68,7 @@ public class DeleteAdvertisementPage extends JFrame {
 		lblNewLabel_1.setBounds(10, 66, 95, 16);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel textField_2 = new JLabel("20");
+		JLabel textField_2 = new JLabel(adv.getPrice());
 		textField_2.setBounds(83, 64, 116, 22);
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		contentPane.add(textField_2);
@@ -113,7 +118,7 @@ public class DeleteAdvertisementPage extends JFrame {
 		lblDesc.setBounds(10, 266, 95, 16);
 		contentPane.add(lblDesc);
 		
-		JLabel txtdesc = new JLabel("it's very good");
+		JLabel txtdesc = new JLabel(adv.getDescription());
 		txtdesc.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtdesc.setBounds(83,266, 156, 22);
 		contentPane.add(txtdesc);
@@ -142,6 +147,8 @@ public class DeleteAdvertisementPage extends JFrame {
 		JButton btnNewButton = new JButton("Delete");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ad.setID(2);
+				ad.deleteAdvertisement();
 				System.out.println("Advertisement with AdsID "+ lblAdID.getText()+" price "+textField_2.getText()+ " type "+txtType.getText() 
 				+" bedrooms "+txtbed.getText()+ " bathrooms "+txtbath.getText() +" park "+txtpark.getText()+ " description "+txtdesc.getText() 
 				+" contractname "+txtContract.getText()+ " phone "+txtPhone.getText() +"  is deleted");

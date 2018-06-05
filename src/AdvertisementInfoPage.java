@@ -144,6 +144,9 @@ public class AdvertisementInfoPage extends JFrame {
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Advertisement ad = new Advertisement();
+				ad.setAddress(textField_1.getText());
+				ad.addAdvertisement();
 				System.out.println("Advertisement with address "+ textField_1.getText()+" price "+textField_2.getText()+ " type "+txtType.getText() 
 				+" bedrooms "+txtbed.getText()+ " bathrooms "+txtbath.getText() +" park "+txtpark.getText()+ " description "+txtdesc.getText() 
 				+" contractname "+txtContract.getText()+ " phone "+txtPhone.getText() +"  is created");

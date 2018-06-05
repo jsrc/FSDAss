@@ -7,14 +7,12 @@ public class AdvertisementService {
 
 		try {
 			DatabaseConnection dbc = new DatabaseConnection();
-			//TODO compelate the cover
-			String sql = "insert into 12825612Advertisement(ID, Address) values ('"
-					+ dbc.getKeys("12825612Advertisement") + "','" + ad.getAddress() + "')";
+			String sql = "insert into 12825612Advertisement(ID, Address, price, propertyType, bedrooms, bathrooms, parkingSpaces, description, contractName, phoneNumber) values ('"
+					+ dbc.getKeys("12825612Advertisement") + "','" + ad.getAddress() + "','" + ad.getPrice() + "','" + ad.getPropertyType() + "','" + ad.getBedrooms() + "','" + ad.getBathrooms() + "','" + ad.getParkingSpaces() + "','" + ad.getDescription() + "','" + ad.getContractName() + "','" + ad.getPhoneNumber() + "')";
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {
 				System.out.println("Created");
 			}
-			;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -29,7 +27,7 @@ public class AdvertisementService {
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {
 				System.out.println("Updated");
-			};
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,12 +37,11 @@ public class AdvertisementService {
 
 		try {
 			DatabaseConnection dbc = new DatabaseConnection();
-			//TODO compelate the cover
 			String sql = "delete from 12825612Advertisement where id = " + id;
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {
 				System.out.println("delete");
-			};
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -61,15 +58,5 @@ public class AdvertisementService {
 		}
 		return list;
 	}
-
-	public static void main(String args[]) {
-		Advertisement ad = new Advertisement();
-		ad.setID(3);
-		ad.setAddress("hello3322");
-
-		AdvertisementService as = new AdvertisementService();
-		// as.createAdvertisement(ad);
-		//as.deleteAdvertisement(1);
-		System.out.print(as.listAdvertisement().get(2).getAddress());
-	}
+	
 }

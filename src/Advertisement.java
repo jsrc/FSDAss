@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class Advertisement {
 	public Advertisement() {
@@ -106,9 +107,28 @@ public class Advertisement {
 		return phoneNumber;
 	}
 	
-	public void search() {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
+	public Advertisement search() {
+		AdvertisementService ads = new AdvertisementService();
+		List<Advertisement> list = ads.listAdvertisement();
+		if (list.size() != 0) {
+			return list.get(0);
+		}
+		return new Advertisement();
+	}
+	
+	public List<Advertisement> listAllAdvertisement() {
+		AdvertisementService ads = new AdvertisementService();
+		return ads.listAdvertisement();
+	}
+	
+	public void addAdvertisement() {
+		AdvertisementService ads = new AdvertisementService();
+		ads.createAdvertisement(this);
+	}
+	
+	public void deleteAdvertisement() {
+		AdvertisementService ads = new AdvertisementService();
+		ads.deleteAdvertisement(getID());
 	}
 	
 	public String toString() {

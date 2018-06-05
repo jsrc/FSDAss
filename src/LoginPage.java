@@ -76,7 +76,14 @@ public class LoginPage extends JFrame {
 				if(textField_1.getText().equals("") || textField_2.getText().equals("")) {
 					System.out.println("Please complete personal informaiton. thanks!");
 				}else {
-					System.out.println("Customer with name "+ textField_1.getText()+" PassWord "+textField_2.getText()+"  is logged");
+					Advertiser ad = new Advertiser();
+					ad.setUsername(textField_1.getText().trim());
+					ad.setPassword(textField_2.getText().trim());
+					boolean result = ad.login();
+					if(result)
+						System.out.println("Customer with name "+ textField_1.getText()+" PassWord "+textField_2.getText()+"  is logged");
+					else
+						System.out.println("fail");
 				}
 			}
 		});

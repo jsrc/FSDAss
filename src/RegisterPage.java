@@ -98,14 +98,16 @@ public class RegisterPage extends JFrame {
 				if(textField_1.getText().equals("") || textField_2.getText().equals("") || textField_3.getText().equals("")) {
 					System.out.println("Please complete personal informaiton. thanks!");
 				}else {
-					AdvertiserService ads=new AdvertiserService();
-					Advertiser ad=new Advertiser();
+					Advertiser ad = new Advertiser();
 					ad.setUsername(textField_1.getText().trim());
 					ad.setPassword(textField_2.getText().trim());
 					ad.setEmail(textField_3.getText().trim());
 					ad.setGender(textField_4.getText().trim());
-					ads.createAdvertiser(ad);
-					System.out.println("Customer with name "+ textField_1.getText()+" PassWord "+textField_2.getText()+ " email "+textField_3.getText() +"  is created");
+					boolean result = ad.register();
+					if(result)
+						System.out.println("Customer with name "+ textField_1.getText()+" PassWord "+textField_2.getText()+ " email "+textField_3.getText() +"  is created");
+					else
+						System.out.println("fail");
 				}
 			}
 		});

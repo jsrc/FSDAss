@@ -73,7 +73,14 @@ public class DatabaseConnection {
 				Advertisement ad = new Advertisement();
 				ad.setID(results.getInt("id"));
 				ad.setAddress(results.getString("Address"));
-				//TODO compelate the cover
+				ad.setPrice(results.getString("price"));
+				ad.setPropertyType(results.getString("propertyType"));
+				ad.setBedrooms(results.getString("bedrooms"));
+				ad.setBathrooms(results.getString("bathrooms"));
+				ad.setParkingSpaces(results.getString("parkingSpaces"));
+				ad.setDescription(results.getString("description"));
+				ad.setContractName(results.getString("contractName"));
+				ad.setPhoneNumber(results.getString("phoneNumber"));
 				list.add(ad);
 			}
 			statement.close();
@@ -102,8 +109,8 @@ public class DatabaseConnection {
 				ad.setID(results.getInt("id"));
 				ad.setUsername(results.getString("username"));
 				ad.setPassword(results.getString("password"));
+				ad.setGender(results.getString("gender"));
 				ad.setEmail(results.getString("email"));
-				//TODO compelate the cover
 			}
 			statement.close();
 			connection.close();

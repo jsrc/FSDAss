@@ -5,15 +5,13 @@ public class AdvertiserService {
 
 		try {
 			DatabaseConnection dbc = new DatabaseConnection();
-			// TODO compelate the cover
-			String sql = "insert into 12825612User(ID, username, password, email, Discriminator) values ('"
+			String sql = "insert into 12825612User(ID, username, password, gender, email, Discriminator) values ('"
 					+ dbc.getKeys("12825612User") + "','" + ad.getUsername() + "','" + ad.getPassword() + "','"
-					+ ad.getEmail() + "','1')";
+					+ ad.getGender() + "','" + ad.getEmail() + "','1')";
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {
 				System.out.println("Created");
 			}
-			;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -30,7 +28,6 @@ public class AdvertiserService {
 			if (dbc.executeSql(sql)) {
 				System.out.println("Updated");
 			}
-			;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,13 +43,12 @@ public class AdvertiserService {
 			if (dbc.executeSql(sql)) {
 				System.out.println("delete");
 			}
-			;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public User findUserbyUsername(String username) {
+	public Advertiser findUserbyUsername(String username) {
 
 		Advertiser ad = new Advertiser();
 		try {
@@ -64,12 +60,4 @@ public class AdvertiserService {
 		return ad;
 	}
 
-	public static void main(String args[]) {
-		Advertiser ad = new Advertiser();
-		ad.setUsername("crixus");
-		ad.setPassword("123456");
-
-		AdvertiserService as = new AdvertiserService();
-		as.createAdvertiser(ad);
-	}
 }

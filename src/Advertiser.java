@@ -8,35 +8,51 @@
  */
 
 /**
- * Licensee: University of Technology, Sydney
- * License Type: Academic
+ * Licensee: University of Technology, Sydney License Type: Academic
  */
 public class Advertiser extends User {
 	public Advertiser() {
 	}
-	
+
 	private String email;
-	
+
 	public void setEmail(String value) {
 		this.email = value;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
-	public void register() {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
+
+	public boolean register() {
+		AdvertiserService ads = new AdvertiserService();
+		if(!checkUsername())
+		{
+			ads.createAdvertiser(this);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean checkUsername() {
+		AdvertiserService ads = new AdvertiserService();
+		if (ads.findUserbyUsername(getUsername()) != null) {
+			return true;
+		}
+		return false;
 	}
 	
-	public boolean checkUsername(String username) {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
+	public boolean login() {
+		AdvertiserService ads = new AdvertiserService();
+		Advertiser adv = ads.findUserbyUsername(getUsername());
+		if (adv != null && adv.getPassword().equals(getPassword())) {
+			return true;
+		}
+		return false;
 	}
 	
 	public String toString() {
 		return super.toString();
 	}
-	
+
 }
