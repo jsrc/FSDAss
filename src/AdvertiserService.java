@@ -21,9 +21,9 @@ public class AdvertiserService {
 
 		try {
 			DatabaseConnection dbc = new DatabaseConnection();
-			// TODO compelate the cover
-			String sql = "update 12825612User set (username, password, email) values ('" + ad.getUsername() + ","
-					+ ad.getPassword() + "," + ad.getEmail() + "') where id = " + ad.getID();
+			String sql = "update 12825612User set (username, password, gender, email, Discriminator) values ('"
+					+ ad.getUsername() + "," + ad.getPassword() + "','" + ad.getGender() + "','" + ad.getEmail()
+					+ "','1') where id = " + ad.getID();
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {
 				System.out.println("Updated");
@@ -37,7 +37,6 @@ public class AdvertiserService {
 
 		try {
 			DatabaseConnection dbc = new DatabaseConnection();
-			// TODO compelate the cover
 			String sql = "delete from 12825612Advertiser where id = " + id;
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {

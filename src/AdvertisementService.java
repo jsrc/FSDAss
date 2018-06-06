@@ -8,7 +8,10 @@ public class AdvertisementService {
 		try {
 			DatabaseConnection dbc = new DatabaseConnection();
 			String sql = "insert into 12825612Advertisement(ID, Address, price, propertyType, bedrooms, bathrooms, parkingSpaces, description, contractName, phoneNumber) values ('"
-					+ dbc.getKeys("12825612Advertisement") + "','" + ad.getAddress() + "','" + ad.getPrice() + "','" + ad.getPropertyType() + "','" + ad.getBedrooms() + "','" + ad.getBathrooms() + "','" + ad.getParkingSpaces() + "','" + ad.getDescription() + "','" + ad.getContractName() + "','" + ad.getPhoneNumber() + "')";
+					+ dbc.getKeys("12825612Advertisement") + "','" + ad.getAddress() + "','" + ad.getPrice() + "','"
+					+ ad.getPropertyType() + "','" + ad.getBedrooms() + "','" + ad.getBathrooms() + "','"
+					+ ad.getParkingSpaces() + "','" + ad.getDescription() + "','" + ad.getContractName() + "','"
+					+ ad.getPhoneNumber() + "')";
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {
 				System.out.println("Created");
@@ -22,8 +25,10 @@ public class AdvertisementService {
 
 		try {
 			DatabaseConnection dbc = new DatabaseConnection();
-			//TODO compelate the cover
-			String sql = "update 12825612Advertisement set (Address) values ('"+ ad.getAddress() + "') where id = "+ad.getID();
+			String sql = "update 12825612Advertisement set (Address, price, propertyType, bedrooms, bathrooms, parkingSpaces, description, contractName, phoneNumber) values ('"
+					+ ad.getAddress() + "','" + ad.getPrice() + "','" + ad.getPropertyType() + "','" + ad.getBedrooms()
+					+ "','" + ad.getBathrooms() + "','" + ad.getParkingSpaces() + "','" + ad.getDescription() + "','"
+					+ ad.getContractName() + "','" + ad.getPhoneNumber() + "') where id = " + ad.getID();
 			System.out.println(sql);
 			if (dbc.executeSql(sql)) {
 				System.out.println("Updated");
@@ -58,5 +63,5 @@ public class AdvertisementService {
 		}
 		return list;
 	}
-	
+
 }
