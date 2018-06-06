@@ -39,7 +39,7 @@ public class LoginPage extends JFrame {
 	 * @return 
 	 */
 	public LoginPage() {
-		setTitle("Register UserInfo");
+		setTitle("LOGIN");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -70,7 +70,7 @@ public class LoginPage extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
-		JButton btnNewButton = new JButton("OK");
+		JButton btnNewButton = new JButton("LOGIN");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(textField_1.getText().equals("") || textField_2.getText().equals("")) {
@@ -91,10 +91,10 @@ public class LoginPage extends JFrame {
 		btnNewButton.setBounds(93, 205, 76, 25);
 		contentPane.add(btnNewButton);
 		
-		JButton btnCancel = new JButton("CANCEL");
+		JButton btnCancel = new JButton("EXIT");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Customer is not logged");
+				System.exit(0);
 			}
 		});
 		btnCancel.setBounds(198, 206, 97, 25);
