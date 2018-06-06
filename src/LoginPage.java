@@ -80,10 +80,14 @@ public class LoginPage extends JFrame {
 					ad.setUsername(textField_1.getText().trim());
 					ad.setPassword(textField_2.getText().trim());
 					boolean result = ad.login();
-					if(result)
+					if(result){
 						System.out.println("Customer with name "+ textField_1.getText()+" PassWord "+textField_2.getText()+"  is logged");
-					else
+						MainPage frame = new MainPage();
+						frame.setVisible(true);
+						setVisible(false);
+					}else{
 						System.out.println("fail");
+					}
 				}
 			}
 		});

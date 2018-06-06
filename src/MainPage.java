@@ -60,11 +60,25 @@ public class MainPage extends JFrame {
 		btnAddad.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAddad.setBounds(10, 380, 150, 30);
 		contentPane.add(btnAddad);
+		btnAddad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdvertisementInfoPage frame = new AdvertisementInfoPage();
+				frame.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		JButton btnModifyad = new JButton("ModifyAdvertisement");
 		btnModifyad.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnModifyad.setBounds(180, 380, 150, 30);
 		contentPane.add(btnModifyad);
+		btnModifyad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModifyAdvertisementPage frame = new ModifyAdvertisementPage();
+				frame.setVisible(true);
+				setVisible(false);
+			}
+		});
 		
 		JButton btnRegister = new JButton("RegisterUserInfo");
 		btnRegister.setFont(new Font("Tahoma", Font.PLAIN, 14));

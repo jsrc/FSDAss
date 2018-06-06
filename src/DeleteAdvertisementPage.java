@@ -41,7 +41,7 @@ public class DeleteAdvertisementPage extends JFrame {
 		Advertisement adv = new Advertisement();
 		adv = ad.search();
 		
-		setTitle("DeleteAdvertisement");
+		setTitle("Delete Advertisement");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 350, 450);
 		contentPane = new JPanel();

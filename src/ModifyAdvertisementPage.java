@@ -37,7 +37,7 @@ public class ModifyAdvertisementPage extends JFrame {
 	 * @return 
 	 */
 	public ModifyAdvertisementPage() {
-		setTitle("DeleteAdvertisement");
+		setTitle("Modify Advertisement");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
