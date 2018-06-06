@@ -102,10 +102,16 @@ public class RegisterPage extends JFrame {
 					ad.setUsername(textField_1.getText().trim());
 					ad.setPassword(textField_2.getText().trim());
 					ad.setEmail(textField_3.getText().trim());
-					ad.setGender(textField_4.getText().trim());
+					ad.setGender(textField_4.
+							getText().trim());
 					boolean result = ad.register();
 					if(result)
+					{
 						System.out.println("Customer with name "+ textField_1.getText()+" PassWord "+textField_2.getText()+ " email "+textField_3.getText() +"  is created");
+						LoginPage frame = new LoginPage();
+						frame.setVisible(true);
+						setVisible(false);
+					}
 					else
 						System.out.println("fail");
 				}
@@ -115,10 +121,10 @@ public class RegisterPage extends JFrame {
 		btnNewButton.setBounds(93, 205, 76, 25);
 		contentPane.add(btnNewButton);
 		
-		JButton btnCancel = new JButton("CANCEL");
+		JButton btnCancel = new JButton("EXIT");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Customer is not created");
+				System.exit(0);
 			}
 		});
 		btnCancel.setBounds(198, 206, 97, 25);

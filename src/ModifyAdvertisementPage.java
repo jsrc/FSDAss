@@ -150,10 +150,10 @@ public class ModifyAdvertisementPage extends JFrame {
 		btnNewButton.setBounds(10, 380, 100, 25);
 		contentPane.add(btnNewButton);
 		
-		JButton btnCancel = new JButton("CANCEL");
+		JButton btnCancel = new JButton("EXIT");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Advertisement is not modified");
+				System.exit(0);
 			}
 		});
 		btnCancel.setBounds(130, 380, 97, 25);

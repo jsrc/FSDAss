@@ -146,6 +146,7 @@ public class AdvertisementInfoPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Advertisement ad = new Advertisement();
 				ad.setAddress(textField_1.getText());
+				ad.setPrice(textField_2.getText());
 				ad.addAdvertisement();
 				System.out.println("Advertisement with address "+ textField_1.getText()+" price "+textField_2.getText()+ " type "+txtType.getText() 
 				+" bedrooms "+txtbed.getText()+ " bathrooms "+txtbath.getText() +" park "+txtpark.getText()+ " description "+txtdesc.getText() 
@@ -156,10 +157,10 @@ public class AdvertisementInfoPage extends JFrame {
 		btnNewButton.setBounds(10, 380, 76, 25);
 		contentPane.add(btnNewButton);
 		
-		JButton btnCancel = new JButton("CANCEL");
+		JButton btnCancel = new JButton("EXIT");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Advertisement is not created");
+				System.exit(0);
 			}
 		});
 		btnCancel.setBounds(100, 380, 97, 25);
